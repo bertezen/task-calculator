@@ -21,7 +21,7 @@ public class Calculator {
             mass = br.readLine().toUpperCase().split(" ");
             try {
                 a = ConversionToInt.convertToInt(mass[0], mass[2]);
-                if (a[0] > 10|| a[1] > 10) {
+                if (a[0] > 10 || a[1] > 10) {
                     throw new InvalidNumberException("Variables cannot be more than 10");
                 }
 
