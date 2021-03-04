@@ -3,10 +3,10 @@ package numbers;
 public class ConversionToInt {
     static public boolean roman = false;
 
-    public static int[] convers(String mass, String mass1) {
+    public static int[] convertToInt(String mass, String mass1) {
         char[] c = mass.toCharArray();
-        int a[] = new int[2];
-        int pos = (int) c[0];
+        int[] a = new int[2];
+        int pos = c[0];
         if (pos > 48 && pos < 58) {
             a[0] = Integer.parseInt(mass);
             a[1] = Integer.parseInt(mass1);

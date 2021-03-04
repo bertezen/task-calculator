@@ -15,11 +15,12 @@ public class Calculator {
         int res;
 
         while (true) {
+
             System.out.println("Input:");
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             mass = br.readLine().toUpperCase().split(" ");
             try {
-                a = ConversionToInt.convers(mass[0], mass[2]);
+                a = ConversionToInt.convertToInt(mass[0], mass[2]);
                 if (a[0] > 10|| a[1] > 10) {
                     throw new InvalidNumberException("Variables cannot be more than 10");
                 }
