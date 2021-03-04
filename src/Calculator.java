@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 
 public class Calculator {
 
-    public static void main(String[] args) throws InvalidNumberException, IOException {
+    public static void main(String[] args) throws IOException, InvalidNumberException {
         String[] mass;
         int[] a;
         int res;
@@ -31,7 +31,7 @@ public class Calculator {
             } catch (IllegalArgumentException e) {
                 System.out.println("Incorrect operator");
                 break;
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Error input: " + e);
                 break;
             }
