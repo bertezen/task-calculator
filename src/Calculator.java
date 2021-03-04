@@ -32,7 +32,7 @@ public class Calculator {
                 System.out.println("Incorrect operator");
                 break;
             } catch (Exception e){
-                System.out.println("Error");
+                System.out.println("Error input: " + e);
                 break;
             }
         }
