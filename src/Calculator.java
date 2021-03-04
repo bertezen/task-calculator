@@ -46,24 +46,28 @@ public class Calculator {
             switch (mass[1]) {
                 case "+":
                     res = new ArabicNumeral(a, b).sum();
-                    System.out.println(roman ? RomanNumeral.toArabicNumeral(res) : res);
+                    printResult(res, roman);
                     break;
                 case "-":
                     res = new ArabicNumeral(a, b).subtract();
-                    System.out.println(roman ? RomanNumeral.toArabicNumeral(res) : res);
+                    printResult(res, roman);
                     break;
                 case "*":
                     res = new ArabicNumeral(a, b).multi();
-                    System.out.println(roman ? RomanNumeral.toArabicNumeral(res) : res);
+                    printResult(res, roman);
                     break;
                 case "/":
                     res = new ArabicNumeral(a, b).division();
-                    System.out.println(roman ? RomanNumeral.toArabicNumeral(res) : res);
+                    printResult(res, roman);
                     break;
                 default:
                     throw new InvalidOperationException("Wrong operation");
 
             }
         }
+    }
+
+    private static void printResult(int res, boolean roman) {
+        System.out.println(roman ? RomanNumeral.toArabicNumeral(res) : res);
     }
 }
