@@ -1,37 +1,48 @@
+import my_exception.InvalidNumberException;
+import my_exception.InvalidOperationException;
 import numbers.ArabicNumeral;
 import numbers.RomanNumeral;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.IllegalFormatException;
 
 public class Calculator {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws InvalidNumberException, IOException {
         String[] mass;
         int a = 0, b = 0, pos, res;
         boolean roman = false;
-
 
         while (true) {
             System.out.println("Input:");
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String str = br.readLine().toUpperCase();
             mass = str.split(" ");
+            try {
+                char[] c = mass[0].toCharArray();
+                pos = (int) c[0];
 
-            char[] c = mass[0].toCharArray();
-            pos = (int) c[0];
-
-            if (pos > 48 && pos < 58) {
-                a = Integer.parseInt(mass[0]);
-                b = Integer.parseInt(mass[2]);
-                roman = false;
-            } else if (pos == 73 || pos == 86 || pos == 88) {
-                a = RomanNumeral.valueOf(mass[0]).getI();
-                b = RomanNumeral.valueOf(mass[2]).getI();
-                roman = true;
+                if (pos > 48 && pos < 58) {
+                    a = Integer.parseInt(mass[0]);
+                    b = Integer.parseInt(mass[2]);
+                    roman = false;
+                } else if (pos == 73 || pos == 86 || pos == 88) {
+                    a = RomanNumeral.valueOf(mass[0]).getI();
+                    b = RomanNumeral.valueOf(mass[2]).getI();
+                    roman = true;
+                }
+            } catch (NumberFormatException | IllegalFormatException e) {
+                e.printStackTrace();
+                break;
             }
 
+            if (a + b > 20) {
+                throw new InvalidNumberException("Variables cannot be more than 10");
+            }
+
+            System.out.println("Output:");
             switch (mass[1]) {
                 case "+":
                     res = new ArabicNumeral(a, b).sum();
@@ -49,6 +60,8 @@ public class Calculator {
                     res = new ArabicNumeral(a, b).division();
                     System.out.println(roman ? RomanNumeral.toArabicNumeral(res) : res);
                     break;
+                default:
+                    throw new InvalidOperationException("Wrong operation");
 
             }
         }
