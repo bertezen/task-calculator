@@ -20,7 +20,7 @@ public enum RomanNumeral {
         return s;
     }
 
-    public static String toArabicNumeral(int a) {
+    public static String toRomeNumeral(int a) {
 
         int[] numbers = {100, 90, 50, 40, 10, 9, 5, 4, 1};
         String[] letters = {"C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
