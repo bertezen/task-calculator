@@ -31,6 +31,9 @@ public class Calculator {
             } catch (IllegalArgumentException e) {
                 System.out.println("Incorrect operator");
                 break;
+            } catch (Exception e){
+                System.out.println("Error");
+                break;
             }
         }
     }
