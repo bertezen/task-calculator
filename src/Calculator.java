@@ -18,8 +18,7 @@ public class Calculator {
         while (true) {
             System.out.println("Input:");
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            String str = br.readLine().toUpperCase();
-            mass = str.split(" ");
+            mass = br.readLine().toUpperCase().split(" ");
             try {
                 char[] c = mass[0].toCharArray();
                 pos = (int) c[0];
