@@ -36,7 +36,7 @@ public class CalculationNumeral {
             case "*":
                 return multi();
             case "/":
-               return division();
+                return division();
             default:
                 throw new InvalidOperationException("Wrong operation");
         }
